@@ -4,29 +4,29 @@ import {
   MinLength,
   IsEmail,
   IsArray,
-} from 'class-validator';
+} from 'class-validator'
 
 export class CreateUserDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(1) // to change when done with testing
-  name: string;
+  name: string
 
   @IsString()
   @IsNotEmpty()
   @MinLength(1)
-  password: string;
+  password: string
 
   @IsEmail()
   @IsNotEmpty()
   @MinLength(1) // to change when done with testing
-  email: string;
+  email: string
 
   @IsString()
   @IsNotEmpty()
   @MinLength(1) // to change when done with testing
-  role: string;
+  role: string
 
   @IsArray()
-  boughtProducts: string[];
+  boughtProducts: string[]
 }
