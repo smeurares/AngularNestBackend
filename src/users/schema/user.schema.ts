@@ -21,7 +21,10 @@ export class User {
   role: string;
 
   @Prop({required: false})
-  boughtProducts: string[] //to change to Product entity when done
+  boughtProducts: string[]   
+
+  id: string
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
+

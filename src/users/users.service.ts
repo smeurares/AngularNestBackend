@@ -45,12 +45,16 @@ export class UsersService {
     try {
       const user = await this.userModel.findOne({ email, password })
       if (user) {
+        const id = user._id.toString()
+        console.log('spec', id)
         console.log('[UsersService] validateUser: found user', user)
         const { role, name, boughtProducts, email } = user
+
         return {
           ...user,
           role,
           name,
+          id,
           email,
           boughtProducts,
           password: undefined,

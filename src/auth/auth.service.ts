@@ -27,6 +27,7 @@ export class AuthService {
       role: user.role,
       name: user.name,
       boughtProducts: user.boughtProducts,
+      id: user.id,
     }
   }
 }
