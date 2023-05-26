@@ -14,7 +14,7 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
-  @MinLength(1)
+  @MinLength(1) // to change when done with testing
   password: string
 
   @IsEmail()
@@ -28,5 +28,5 @@ export class CreateUserDto {
   role: string
 
   @IsArray()
-  boughtProducts: string[]
+  boughtProducts: string[] // to change to product
 }
