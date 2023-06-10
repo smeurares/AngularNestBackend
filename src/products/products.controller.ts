@@ -16,8 +16,13 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Post()
-  create(@Body() createProductDto: CreateProductDto) {
+  createOneProduct(@Body() createProductDto: CreateProductDto) {
     return this.productsService.createProduct(createProductDto)
+  }
+
+  @Post('csv')
+  createMultipleProduct(@Body() createProductsDto: CreateProductDto[]) {
+    return this.productsService.createMultipleProducts(createProductsDto)
   }
 
   @Get()

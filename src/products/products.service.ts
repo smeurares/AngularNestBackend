@@ -19,6 +19,12 @@ export class ProductsService {
     return product.save()
   }
 
+  async createMultipleProducts(
+    products: CreateProductDto[]
+  ): Promise<ProductDocument[]> {
+    return this.productModel.insertMany(products)
+  }
+
   async findAllProducts(): Promise<ProductDocument[]> {
     return this.productModel.find()
   }
