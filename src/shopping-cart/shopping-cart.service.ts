@@ -63,4 +63,22 @@ export class ShoppingCartService {
   async clearShoppingCart(userId: string) {
     return this.shoppingCartModel.deleteOne({ user: userId })
   }
+
+  async removeFromCart(
+    userId: string,
+    productId: string
+  ): Promise<ShoppingCartDocument> {
+    const shoppingCart = await this.findOrCreateShoppingCart(userId)
+
+    const index = shoppingCart.products.findIndex(
+      (product) => product.toString() === productId
+    )
+
+    if (index !== -1) {
+      shoppingCart.products.splice(index, 1)
+      await shoppingCart.save()
+    }
+
+    return shoppingCart
+  }
 }

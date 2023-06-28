@@ -22,6 +22,14 @@ export class ShoppingCartController {
     return this.shoppingCartService.clearShoppingCart(userId)
   }
 
+  @Delete(':userId/remove/:productId')
+  async removeProduct(
+    @Param('userId') userId: string,
+    @Param('productId') productId: string
+  ) {
+    return this.shoppingCartService.removeFromCart(userId, productId)
+  }
+
   @Get(':userId')
   async getAllProducts(@Param('userId') userId: string) {
     return this.shoppingCartService.getAllCartProductsByUser(userId)
